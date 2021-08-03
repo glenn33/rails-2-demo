@@ -1,1 +1,15 @@
 <h1>New game</h1>
+<br>
+<ul style="display: flex; list-style: none;">
+  <% @letters.each do |letter| %>
+    <li style="margin-right: 10px; background-color: #93f; color: white; padding: 15px; border-radius: 5px; font-weigth: bold;"><%= letter %></li>
+  <% end %>
+</ul>
+<br>
+<br>
+<form action="score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="text" name="word" placeholder="Your word!">
+  <input type="submit">
+</form>
